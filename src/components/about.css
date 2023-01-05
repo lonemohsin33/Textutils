@@ -1,0 +1,17 @@
+.bt{
+color: rgb(54, 50, 50);
+font-family: 'Courier New', Courier, monospace;
+font-weight: bolder;
+align-items: center;
+margin-bottom: 20px;
+
+}
+.wt{
+    color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+font-weight: bolder;
+align-items: center;
+}
+.sp{
+    margin-top: 70px;
+}

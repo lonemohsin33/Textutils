@@ -4,6 +4,11 @@ import Navbar from "./components/Navbar";
 import TxtInput from "./components/TxtInput";
 import { useState } from "react";
 import Alert from "./components/Alert";
+import {
+  BrowserRouter as Router, Route, Routes
+
+} from "react-router-dom"
+import About from "./components/About";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -41,18 +46,34 @@ function App() {
   };
   return (
     <>
-      <Navbar
-        title="Text-Utils"
-        home="HomePage"
-        about="About"
-        mode={mode}
-        darkMode={darkMode}
-        purpleMode={purpleMode}
-      />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        <TxtInput mode={mode} alert={alert} heading="Enter The Text Below! " />
-      </div>
+      <Router>
+        <Navbar
+          title="Text-Utils"
+          home="HomePage"
+          about="About"
+          mode={mode}
+          darkMode={darkMode}
+          purpleMode={purpleMode}
+        />
+        <Alert alert={alert} />
+        <div className="container my-3">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <TxtInput
+                  mode={mode}
+                  alert={alert}
+                  setalert={showalert}
+                  heading="Enter The Text Below! "
+                />
+              }
+            />
+
+            <Route path="/about" element={<About mode={mode} />} />
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
